@@ -45,7 +45,7 @@ export default function Draw() {
         You have <b>{tryCounter}</b> chance to try
       </p>
       <div>
-        <input type="text" value={inputValue} onChange={handleInput} />{" "}
+        <input type="tel" value={inputValue} onChange={handleInput} />{" "}
         {/* BUG onChange doesnt work propery*/}
       </div>
       <br />
