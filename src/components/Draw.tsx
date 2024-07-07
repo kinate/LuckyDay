@@ -38,20 +38,24 @@ export default function Draw() {
 
   return (
     <>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="card p-4 text-center" style={{ width: '300px' }}>
       <h1>{isWinner ? "🎉" : "😎"}</h1>
-      <h3> Guess the number 0 to 10 </h3>
+      <h4> Pick a number 0 to 10 </h4>
 
       <p>
-        You have <b>{tryCounter}</b> chance to try
+        You have <b>{tryCounter}</b> chances to try
       </p>
       <div>
-        <input type="tel" value={inputValue} onChange={handleInput} />{" "}
+        <input className="form-control" type="tel" value={inputValue} onChange={handleInput} />{" "}
         {/* BUG onChange doesnt work propery*/}
       </div>
       <br />
-      <button disabled={isNumberAboveTen} onClick={handleEvent}>
+      <button className="btn btn-primary" disabled={isNumberAboveTen} onClick={handleEvent}>
         {isNumberAboveTen ? "Hey! just 1-10 😡" : "Try my lucky"}
       </button>
+      </div>
+      </div>
     </>
   );
 }
