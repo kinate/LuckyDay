@@ -38,9 +38,20 @@ export default function Draw() {
 
   return (
     <>
-    <div className="d-flex justify-content-center align-items-center vh-100">
-    <div className="card p-4 text-center" style={{ width: '300px' }}>
-      <h1>{isWinner ? "🎉" : "😎"}</h1>
+    <div className="container vh-100 d-flex justify-content-center align-items-center">
+      <div className="row w-100">
+        <div className="col-12 col-md-4 mx-auto" >
+          <div className="card p-4 text-center" style={{background:'#000',color:'#fff'}}>
+      <h1 style={{ 
+      backgroundColor: 'white', 
+      borderRadius: '40%', 
+      width: '60px', 
+      height: '60px', 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center',
+      margin: '0 auto' 
+    }}>{isWinner ? "🎉" : "😎"}</h1>
       <h4> Pick a number 0 to 10 </h4>
 
       <p>
@@ -54,6 +65,9 @@ export default function Draw() {
       <button className="btn btn-primary" disabled={isNumberAboveTen} onClick={handleEvent}>
         {isNumberAboveTen ? "Hey! just 1-10 😡" : "Try my lucky"}
       </button>
+      </div>
+      <p style={{color:'#ccc'}}>@2024 Luck Day</p>
+      </div>
       </div>
       </div>
     </>
