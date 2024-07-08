@@ -11,8 +11,8 @@ export default function Draw() {
   const [isNumberAboveTen, setIsNumberAboveTen] = useState(false);
   const [tryCounter, SetTryCounter] = useState(3);
   const [isWinner, setIsWinner] = useState(false);
-  const [isBorderActive , setIsBorderActive] = useState(false)
-  // const [isRestricted, setIsRestricted]=useState(false);
+  const [isBorderActive, setIsBorderActive] = useState(false);
+  const [isRestricted, setIsRestricted] = useState(false);
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (Number(inputValue) <= 10) {
@@ -23,8 +23,6 @@ export default function Draw() {
       setInputValue(event.target.value);
     }
   };
-
-  
 
   function handleEvent() {
     console.log(inputValue);
@@ -37,10 +35,13 @@ export default function Draw() {
       setIsWinner(false);
       SetTryCounter(tryCounter - 1);
       setIsBorderActive(true);
-      setTimeout(()=>{setIsBorderActive(false)},1000);
+      setTimeout(() => {
+        setIsBorderActive(false);
+      }, 1000);
       //Set restricted true if attempt 3 times.
-      if(tryCounter < 1){setIsRestricted(true)}
-
+      if (tryCounter < 1) {
+        setIsRestricted(true);
+      }
     }
   }
 
@@ -50,8 +51,10 @@ export default function Draw() {
         <div className="row w-100">
           <div className="col-12 col-md-4 mx-auto">
             <div
-              className={`card p-4 text-center border ${isBorderActive? 'border-danger border-2':''} ${isWinner? 'border-success border-2':''}`}
-              style={{ background: "#F8F8F8"}}
+              className={`card p-4 text-center border ${
+                isBorderActive ? "border-danger border-2" : ""
+              } ${isWinner ? "border-success border-2" : ""}`}
+              style={{ background: "#F8F8F8" }}
             >
               <h1
                 style={{
@@ -67,9 +70,15 @@ export default function Draw() {
               >
                 {isWinner ? "🎉" : "😎"}
               </h1>
-              <h4>{isWinner? "You are a Winner!!" : "Pick a number 0 to 10"}  </h4>
+              <h4>
+                {isWinner ? "You are a Winner!!" : "Pick a number 0 to 10"}{" "}
+              </h4>
 
-              {!isWinner && <p>You have <b>{tryCounter}</b> chances to try</p>}
+              {!isWinner && (
+                <p>
+                  You have <b>{tryCounter}</b> chances to try
+                </p>
+              )}
               <div>
                 <input
                   className="form-control"
@@ -80,13 +89,17 @@ export default function Draw() {
                 {/* BUG onChange doesnt work propery*/}
               </div>
               <br />
-              <button
-                className="btn btn-primary"
-                disabled={isNumberAboveTen}
-                onClick={handleEvent}
-              >
-                {isNumberAboveTen ? "Hey! just 1-10 😡" : "Try my lucky"}
-              </button>
+              {isRestricted ? (
+                <p style={{ color: "red" }}>You are not lucky today 😌</p>
+              ) : (
+                <button
+                  className="btn btn-primary"
+                  disabled={isNumberAboveTen}
+                  onClick={handleEvent}
+                >
+                  {isNumberAboveTen ? "Hey! just 1-10 😡" : "Try my lucky"}
+                </button>
+              )}
             </div>
             <p style={{ color: "#ccc" }}>@2024 Luck Day</p>
           </div>
