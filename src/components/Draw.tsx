@@ -39,7 +39,7 @@ export default function Draw() {
         setIsBorderActive(false);
       }, 1000);
       //Set restricted true if attempt 3 times.
-      if (tryCounter < 1) {
+      if (tryCounter < 2) {
         setIsRestricted(true);
       }
     }
