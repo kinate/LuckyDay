@@ -1,0 +1,8 @@
+/* src/custom.css */
+.card {
+    transition: border-color 0.3s;
+  }
+  
+  .card.active-border {
+    border-color: red !important;
+  }

@@ -11,6 +11,7 @@ export default function Draw() {
   const [isNumberAboveTen, setIsNumberAboveTen] = useState(false);
   const [tryCounter, SetTryCounter] = useState(3);
   const [isWinner, setIsWinner] = useState(false);
+  const [isBorderActive , setIsBorderActive] = useState(false)
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (Number(inputValue) <= 10) {
@@ -22,6 +23,8 @@ export default function Draw() {
     }
   };
 
+  
+
   function handleEvent() {
     console.log(inputValue);
     if (luckyNumber === Number(inputValue)) {
@@ -32,7 +35,8 @@ export default function Draw() {
     } else {
       setIsWinner(false);
       SetTryCounter(tryCounter - 1);
-      console.log(luckyNumber);
+      setIsBorderActive(true);
+      setTimeout(()=>{setIsBorderActive(false)},1000);
     }
   }
 
@@ -42,7 +46,7 @@ export default function Draw() {
         <div className="row w-100">
           <div className="col-12 col-md-4 mx-auto">
             <div
-              className="card p-4 text-center"
+              className={`card p-4 text-center border ${isBorderActive? 'border-danger border-2':''}`}
               style={{ background: "#F8F8F8"}}
             >
               <h1
