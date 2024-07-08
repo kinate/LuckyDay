@@ -12,6 +12,7 @@ export default function Draw() {
   const [tryCounter, SetTryCounter] = useState(3);
   const [isWinner, setIsWinner] = useState(false);
   const [isBorderActive , setIsBorderActive] = useState(false)
+  const [isRestricted, setIsRestricted]=useState(false);
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (Number(inputValue) <= 10) {
@@ -37,6 +38,9 @@ export default function Draw() {
       SetTryCounter(tryCounter - 1);
       setIsBorderActive(true);
       setTimeout(()=>{setIsBorderActive(false)},1000);
+      //Set restricted true if attempt 3 times.
+      if(tryCounter < 1){setIsRestricted(true)}
+
     }
   }
 
@@ -46,7 +50,7 @@ export default function Draw() {
         <div className="row w-100">
           <div className="col-12 col-md-4 mx-auto">
             <div
-              className={`card p-4 text-center border ${isBorderActive? 'border-danger border-2':''}`}
+              className={`card p-4 text-center border ${isBorderActive? 'border-danger border-2':''} ${isWinner? 'border-success border-2':''}`}
               style={{ background: "#F8F8F8"}}
             >
               <h1
