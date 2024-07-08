@@ -32,7 +32,8 @@ export default function Draw() {
       SetTryCounter(3);
       console.log(typeof Number(inputValue));
     } else {
-      setIsWinner(false);
+      setInputValue("");
+      setIsWinner(false)
       SetTryCounter(tryCounter - 1);
       setIsBorderActive(true);
       setTimeout(() => {
