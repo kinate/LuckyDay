@@ -59,11 +59,9 @@ export default function Draw() {
               >
                 {isWinner ? "🎉" : "😎"}
               </h1>
-              <h4> Pick a number 0 to 10 </h4>
+              <h4>{isWinner? "You are a Winner!!" : "Pick a number 0 to 10"}  </h4>
 
-              <p>
-                You have <b>{tryCounter}</b> chances to try
-              </p>
+              {!isWinner && <p>You have <b>{tryCounter}</b> chances to try</p>}
               <div>
                 <input
                   className="form-control"
