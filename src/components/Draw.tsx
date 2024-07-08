@@ -12,7 +12,7 @@ export default function Draw() {
   const [tryCounter, SetTryCounter] = useState(3);
   const [isWinner, setIsWinner] = useState(false);
   const [isBorderActive , setIsBorderActive] = useState(false)
-  const [isRestricted, setIsRestricted]=useState(false);
+  // const [isRestricted, setIsRestricted]=useState(false);
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (Number(inputValue) <= 10) {
